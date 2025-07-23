@@ -7,6 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assume.assumeFalse;
 
 public class DfRunnerTest {
+
 	@Test
 	public void get_percentage() throws Exception {
 		assumeFalse(Functions.isWindows());

@@ -7,6 +7,7 @@ import java.text.ParseException;
 import org.junit.Test;
 
 public class InodesMonitorTest {
+
 	@Test(expected = ParseException.class)
 	public void check_threshold_exception() throws Exception {
 		new InodesMonitor("110%");
