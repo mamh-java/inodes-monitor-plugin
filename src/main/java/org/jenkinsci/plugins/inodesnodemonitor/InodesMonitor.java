@@ -1,7 +1,6 @@
 package org.jenkinsci.plugins.inodesnodemonitor;
 
 import edu.umd.cs.findbugs.annotations.NonNull;
-import hudson.node_monitors.AbstractDiskSpaceMonitor;
 import hudson.node_monitors.MonitorOfflineCause;
 import java.io.IOException;
 import java.io.Serializable;
@@ -75,7 +74,7 @@ public class InodesMonitor extends NodeMonitor {
 			String currentState = "current=" + currentValue + ",threshold=" + inodesPercentThreshold;
 			String computerName = computer.getName();
 			// master has no nodeName
-			if ("".equals(computer.getName())) {
+			if (computer.getName().isEmpty()) {
 				computerName = "built-in";
 			}
 
@@ -112,6 +111,7 @@ public class InodesMonitor extends NodeMonitor {
 	static class InodesUseInPercentMonitorDescriptor extends AbstractAsyncNodeMonitorDescriptor<String> {
 
 		@Override
+		@NonNull
 		public String getDisplayName() {
 			return Messages.inodesmonitor_useinpercent();
 		}
